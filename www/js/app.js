@@ -69,6 +69,16 @@ angular.module('gc', ['ionic', 'gc.controllers', 'gc.services'])
       }
     })
 
+    .state('app.challangeSignup', {
+      url: '/challengeSignup/:id',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/ChallengeSignup.html',
+          controller: 'ChallengeSignupController'
+        }
+      }
+    })
+
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {

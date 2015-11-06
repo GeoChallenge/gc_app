@@ -1,8 +1,8 @@
 <ion-view view-title="Challenges">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="challenge in challenges">
-        {{challenge.title}}
+      <ion-item ng-repeat="challenge in challenges" href="#/app/challengeSignup/{{challenge.id}}">
+        {{challenge.title}} {{challenge.id}}
       </ion-item>
     </ion-list>
   </ion-content>
