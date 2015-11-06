@@ -59,6 +59,16 @@ angular.module('gc', ['ionic', 'gc.controllers', 'gc.services'])
       }
     })
 
+    .state('app.challenges', {
+      url: '/challenges',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/ChallengesOverview.html',
+          controller: 'ChallengesOverviewController'
+        }
+      }
+    })
+
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
@@ -69,5 +79,5 @@ angular.module('gc', ['ionic', 'gc.controllers', 'gc.services'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/challenges');
 });

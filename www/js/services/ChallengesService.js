@@ -1,12 +1,26 @@
-angular.module("gc.services")
+angular.module('gc.services')
 
-.service("Lectures", function($http, $q, Settings) {
+.service('ChallengesOverview', function($http, $q, $timeout) {
 
     /*
      * Returns the metadata of all challanges
      */
     var loadChallangeOverview = function() {
-        return ["asd", "asd"];
+        var deferred = $q.defer();
+
+        $timeout(function() {
+            var challenges = [
+                { title: 'Challenge 1' },
+                { title: 'Challenge 2' },
+                { title: 'Challenge 3' },
+                { title: 'Challenge 4' },
+                { title: 'Challenge 5' },
+                { title: 'Challenge 6' }
+            ];
+            deferred.resolve(challenges);
+        }, 500);
+
+        return deferred.promise;
     };
 
     return {
