@@ -1,7 +1,7 @@
 {
-  "name": "geochallenge",
+  "name": "mymapdemo",
   "version": "1.1.1",
-  "description": "geochallenge: An Ionic project",
+  "description": "myMapDemo: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",

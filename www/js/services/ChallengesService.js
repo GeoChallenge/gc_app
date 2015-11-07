@@ -1,4 +1,4 @@
-angular.module('gc.services')
+angular.module('starter')
 
 .service('ChallengesOverview', function($http, $q, $timeout) {
 

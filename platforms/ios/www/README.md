@@ -1,32 +1,33 @@
-This is an addon starter template for the [Ionic Framework](http://ionicframework.com/).
+ionic-leafletjs-map-demo
+========================
 
-## How to use this template
+Simple Ionic Framework mapping application using the [Leaflet.js](http://leafletjs.com) library.
 
-*This template does not work on its own*. It is missing the Ionic library, and AngularJS.
+# Demo
+http://ionic-leafletjs-map-demo.divshot.io/#/app/map
 
-To use this, either create a new ionic project using the ionic node.js utility, or copy and paste this into an existing Cordova project and download a release of Ionic separately.
+# Installation
+- Ensure Ionic CLI installed
 
-### With the Ionic tool:
-
-Take the name after `ionic-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myApp sidemenu
+```sh
+ionic start myMapDemo https://github.com/calendee/ionic-leafletjs-map-demo
+cd myMapDemo
+cordova plugin add cordova-plugin-geolocation
+ionic platform add ios
+ionic platform add android
+ionic serve
 ```
 
-Then, to run it, cd into `myApp` and run:
+# Contributors
+[Justin Noel](http://calendee.com)
 
-```bash
-$ ionic platform add ios
-$ ionic build ios
-$ ionic emulate ios
-```
+# Credits
+This app was based on a sample from [Ahmed Alparslan Özdemir](https://github.com/alparslanahmed/MekanBul).  Thank you.
 
-Substitute ios for android if not on a Mac, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
+Uses the [Angular Leaflet Directive](https://tombatossals.github.io/angular-leaflet-directive/) by [David Rubert](https://github.com/tombatossals).
 
-## Demo
-http://plnkr.co/edit/0RXSDB?p=preview
+Of course, it wouldn't exist without the fine folks from [Drifty](http://www.drifty.com) and the [Ionic Framework Team](http://ionicframework.com).
 
-## Issues
-Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/contribute/#issues) to the main Ionic repository. On the other hand, pull requests are welcome here!
+## LICENSE
+
+ionic-leafletjs-map-demo is licensed under the MIT Open Source license. For more information, see the LICENSE file in this repository. Please review included libraries for license information specific to those projects.

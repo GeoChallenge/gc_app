@@ -1,12 +1,4 @@
 {
-  "name": "geochallenge",
-  "app_id": "",
-  "gulpStartupTasks": [
-    "sass",
-    "watch"
-  ],
-  "watchPatterns": [
-    "www/**/*",
-    "!www/lib/**/*"
-  ]
+  "name": "myMapDemo",
+  "app_id": ""
 }

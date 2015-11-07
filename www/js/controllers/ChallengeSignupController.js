@@ -1,4 +1,4 @@
-angular.module('gc.controllers')
+angular.module('starter')
 
 .controller('ChallengeSignupController', function($scope, $stateParams, ChallengesDetails) {
 

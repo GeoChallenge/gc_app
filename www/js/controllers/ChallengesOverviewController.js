@@ -1,4 +1,4 @@
-angular.module('gc.controllers')
+angular.module('starter')
 
 .controller('ChallengesOverviewController', function($scope, ChallengesOverview) {
 
