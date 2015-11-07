@@ -2,6 +2,10 @@ angular.module('gc.controllers')
 
 .controller('ChallengeSignupController', function($scope, $stateParams, ChallengesDetails) {
 
+    $scope.signup = function() {
+        console.log("signup");
+    };
+
     $scope.$on('$ionicView.beforeEnter', function(){
         $scope.id = $stateParams.id;
 
