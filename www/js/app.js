@@ -86,6 +86,25 @@ angular.module('starter', ['ionic', 'leaflet-directive', 'ngCordova', 'igTruncat
                 controller: 'RunningMyHistoryController'
             }
         }
+    })
+
+    .state('app.runningJokers', {
+        url: '/runningJokers',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/runningJokers.html',
+            }
+        }
+    })
+
+    .state('app.runningShowEnemies', {
+        url: '/runningShowEnemies',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/runningShowEnemies.html',
+                controller: 'RunningShowEnemiesController'
+            }
+        }
     });
 
     $urlRouterProvider.otherwise('/app/runningCompass');

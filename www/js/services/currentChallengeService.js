@@ -88,6 +88,7 @@ angular.module('starter')
     var calcDifferenceToNextQuestion = function(curLat, curLon) {
         var nextLat = this.currentChallenge.quests[this.currQuestIndex].lat;
         var nextLon = this.currentChallenge.quests[this.currQuestIndex].lon;
+        console.log("currentQuest:", this.currentChallenge.quests[this.currQuestIndex]);
 
         var dist = getDistanceFromLatLonInKm(curLat, curLon, nextLat, nextLon);
         return Math.floor(dist*1000);

@@ -1,10 +1,23 @@
 angular.module('starter')
 
-.controller('RunningCompassController', function($scope, $interval, $cordovaGeolocation, CurrentChallenge, $cordovaDeviceOrientation, $state) {
+.controller('RunningCompassController', function(
+    $scope,
+    $interval,
+    $cordovaGeolocation,
+    CurrentChallenge,
+    $cordovaDeviceOrientation,
+    $state,
+    $ionicPopup,
+    $ionicHistory
+) {
     console.log("hello from RunningCompassController");
 
     $scope.myHistory = function() {
         $state.go('app.runningMyHistory');
+    };
+
+    $scope.jokers = function() {
+        $state.go('app.runningJokers');
     };
 
     $scope.needleAngle = 10;
@@ -27,6 +40,22 @@ angular.module('starter')
             var lat  = position.coords.latitude;
             var lon = position.coords.longitude;
             $scope.distance = CurrentChallenge.calcDifferenceToNextQuestion(lat, lon);
+
+            // if user is 10 Meters near to the spot, show him the next quest
+            if ($scope.distance < 10) {
+                var alertPopup = $ionicPopup.alert({
+                    title: 'YEEEES!',
+                    template: 'Great, you completed another Target! Let\'s move to the next!'
+                });
+                alertPopup.then(function(res) {
+                    // go to the quest screen
+                    $ionicHistory.nextViewOptions({
+                        disableBack: true
+                    });
+                    $state.go('app.runningDoQuest');
+                });
+            }
+
             if (position.coords.speed !== null) {
                 $scope.speed = position.coords.speed;
             }
