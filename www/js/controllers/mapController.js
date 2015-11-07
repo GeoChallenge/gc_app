@@ -4,6 +4,7 @@ angular.module('starter').controller('MapController',
     '$stateParams',
     '$ionicModal',
     '$ionicPopup',
+    '$timeout',
     'LocationsService',
     'InstructionsService',
     function(
@@ -12,6 +13,7 @@ angular.module('starter').controller('MapController',
       $stateParams,
       $ionicModal,
       $ionicPopup,
+      $timeout,
       LocationsService,
       InstructionsService
       ) {
@@ -31,6 +33,7 @@ angular.module('starter').controller('MapController',
             zoomControlPosition: 'bottomleft'
           },
           markers : {},
+          points : {},
           events: {
             map: {
               enable: ['context'],
@@ -38,8 +41,8 @@ angular.module('starter').controller('MapController',
             }
           }
         };
-
         $scope.goTo(0);
+
 
       });
 
@@ -84,10 +87,10 @@ angular.module('starter').controller('MapController',
         $scope.map.center  = {
           lat : location.lat,
           lng : location.lng,
-          zoom : 12
+          zoom : 15
         };
 
-        $scope.map.markers[locationKey] = {
+        $scope.map.points[locationKey] = {
           lat:location.lat,
           lng:location.lng,
           message: location.name,
@@ -112,7 +115,7 @@ angular.module('starter').controller('MapController',
             $scope.map.markers.now = {
               lat:position.coords.latitude,
               lng:position.coords.longitude,
-              message: "You Are Here",
+              message: "Your current location",
               focus: true,
               draggable: false
             };
@@ -122,7 +125,68 @@ angular.module('starter').controller('MapController',
             console.log("Location error!");
             console.log(err);
           });
-
+          $scope.getLocationofOtherUsers();
       };
+
+      $scope.getLocationofOtherUsers= function(){
+
+          var currentPostions = LocationsService.currentPostionOfEnemys;
+          var featureGroup = L.featureGroup().addLayer($scope.map);
+          var circle_options = {
+           color: '#fff',      // Stroke color
+           opacity: 1,         // Stroke opacity
+           weight: 100,         // Stroke weight
+           fillColor: '#000',  // Fill color
+           fillOpacity: 0.6    // Fill opacity
+         };
+         var polyline_options = {
+              color: '#000'
+          };
+         var line_points = [
+             [48.78800000, 9.216635],
+             [48.78811111, 9.216635],
+             [48.78822222, 9.216635],
+             [48.78844444, 9.216635],
+             [48.78866666, 9.216635],
+             [48.78899999, 9.216635],
+
+         ];
+         var polyline = L.polyline(line_points, polyline_options).addTo(featureGroup);
+         var circle_one = L.circle([48.78808922, 9.216635], 20, circle_options).addTo(featureGroup);
+         var circle_two = L.circle([48.78888922, 9.219935], 20, circle_options).addTo(featureGroup);
+
+
+          var line_points= LocationsService.line_points;
+
+          var i =0;
+          console.log(line_points);
+          addDelay(i ,addDelay);
+          function addDelay(i ,callback)
+          {
+            setTimeout(function () {
+            addPointsToMap(line_points[i]);
+            ++i;
+            $scope.$apply();
+            if(i<line_points.length){callback(i, callback);}
+            }, 1000);
+          }
+
+          function addPointsToMap(position) {
+
+              console.log("hi");
+
+
+              $scope.map.markers[position.id] = {
+                lat:position.lat,
+                lng:position.lng,
+                message:position.name,
+                focus: true,
+                draggable: false
+              }
+
+
+            console.log(position.name + ' = ' + position.lng +' ' + position.lat);
+          }
+      }
 
     }]);
