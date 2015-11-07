@@ -78,6 +78,6 @@ angular.module('starter', ['ionic', 'leaflet-directive', 'ngCordova', 'igTruncat
         }
     });
 
-    $urlRouterProvider.otherwise('/app/map');
+    $urlRouterProvider.otherwise('/app/runningCompass');
 
   });

@@ -4,7 +4,18 @@
         <ion-list>
             <ion-item class="text-center">
                 <div style="transform: rotate({{rotation}}deg);" class="compassNeedle"></div>
-                <h2 style="margin-top: 20px">200m until the next Quest</h2>
+                <h2 style="margin-top: 20px">
+                    <span ng-if="distance === 0">Calculating distance ...</span>
+                    <span ng-if="distance !== 0">{{distance}}m until the next Quest</span>
+                </h2>
+
+                <h2 style="margin-top: 20px">
+                    <span>{{speed}}m per second</span>
+                </h2>
+                <h2 style="margin-top: 20px">
+                    <span>{{heading}} degree from north</span>
+                </h2>
+
             </ion-item>
             <ion-item class="item-text-wrap">
                 <p class="">
