@@ -1,8 +1,24 @@
 <ion-view view-title="Signup">
   <ion-content>
     <ion-list>
-        <h1>SIGNUP {{id}}</h1>
-        {{ challenge }}
+        <h2>{{challenge.title}}</h2>
+
+        <ion-item>
+            Approx. Duration: {{challenge.approxDuration}}
+        </ion-item>
+        <ion-item>
+            Start Date / Time {{challenge.startDate | date: 'medium'}}
+        </ion-item>
+        <ion-item>
+            Start Location: {{challenge.startLocationDescription}}
+        </ion-item>
+        <ion-item>
+            Min Member Count: {{challenge.minParticipants}}
+        </ion-item>
+        <ion-item>
+            Number of Users Signed up: {{challenge.signedUser}}
+        </ion-item>
+
     </ion-list>
   </ion-content>
 </ion-view>
