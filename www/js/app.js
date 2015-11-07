@@ -66,6 +66,16 @@ angular.module('starter', ['ionic', 'leaflet-directive', 'ngCordova', 'igTruncat
                 controller: 'RunningCompassController'
             }
         }
+    })
+
+    .state('app.runningDoQuest', {
+        url: '/runningDoQuest',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/runningDoQuest.html',
+                controller: 'RunningDoQuestController'
+            }
+        }
     });
 
     $urlRouterProvider.otherwise('/app/map');
