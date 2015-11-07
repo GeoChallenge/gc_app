@@ -2,10 +2,50 @@ angular.module('starter')
 
 .service('CurrentChallenge', function($http, $q, $timeout) {
 
-    /*
-     * Returns the metadata of all challanges
-     */
-
+    var myHistory = [
+        {
+            "userId": "0MKJOID6",
+            "lng": 9.1850183,
+            "lat": 48.780348,
+            "timestamp": "2015-11-20T15:29:12.485Z",
+            "nextQuestIndex": 0
+        },
+        {
+            "userId": "0MKJOID6",
+            "lng": 9.1844040,
+            "lat": 48.781012,
+            "timestamp": "2015-11-20T15:34:11.485Z",
+            "nextQuestIndex": 1
+        },
+        {
+            "userId": "0MKJOID6",
+            "lng": 9.1857310,
+            "lat": 48.7822340,
+            "timestamp": "2015-11-20T15:41:07.485Z",
+            "nextQuestIndex": 1
+        },
+        {
+            "userId": "0MKJOID6",
+            "lng": 9.1865114,
+            "lat": 48.7835100,
+            "timestamp": "2015-11-20T15:50:47.485Z",
+            "nextQuestIndex": 1
+        },
+        {
+            "userId": "0MKJOID6",
+            "lng": 9.1879212,
+            "lat": 48.7852239,
+            "timestamp": "2015-11-20T15:55:12.485Z",
+            "nextQuestIndex": 1
+        },
+        {
+            "userId": "0MKJOID6",
+            "lng": 1904006,
+            "lat": 48.7881212,
+            "timestamp": "2015-11-20T16:01:19.485Z",
+            "nextQuestIndex": 1
+        }
+    ];
 
     var currQuestIndex = 0;
     var currentChallenge = {
@@ -84,37 +124,8 @@ angular.module('starter')
         return d;
     }
 
-
-
     function deg2rad(deg) {
         return deg * (Math.PI/180);
-    }
-
-    function radians(n) {
-        return n * (Math.PI / 180);
-    }
-
-    function degrees(n) {
-        return n * (180 / Math.PI);
-    }
-
-    function getBearing(startLat, startLong, endLat, endLong) {
-        startLat = radians(startLat);
-        startLong = radians(startLong);
-        endLat = radians(endLat);
-        endLong = radians(endLong);
-
-        var dLong = endLong - startLong;
-
-        var dPhi = Math.log(Math.tan(endLat/2.0+Math.PI/4.0)/Math.tan(startLat/2.0+Math.PI/4.0));
-        if (Math.abs(dLong) > Math.PI){
-            if (dLong > 0.0)
-            dLong = -(2.0 * Math.PI - dLong);
-            else
-            dLong = (2.0 * Math.PI + dLong);
-        }
-
-        return (degrees(Math.atan2(dLong, dPhi)) + 360.0) % 360.0;
     }
 
     return {
@@ -122,6 +133,7 @@ angular.module('starter')
         currentChallenge: currentChallenge,
         calcDifferenceToNextQuestion: calcDifferenceToNextQuestion,
         calcAngleToNextQuestion: calcAngleToNextQuestion,
-        currQuestIndex: currQuestIndex
+        currQuestIndex: currQuestIndex,
+        myHistory: myHistory
     };
 });

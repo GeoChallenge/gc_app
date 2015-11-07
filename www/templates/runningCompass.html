@@ -4,17 +4,14 @@
         <ion-list>
             <ion-item class="text-center">
                 <div style="transform: rotate({{needleAngle}}deg);" class="compassNeedle"></div>
-                <h1>{{needleAngle}}</h1>
+                <h1>{{needleAngle}}°</h1>
                 <h2 style="margin-top: 20px">
                     <span ng-if="distance === 0">Calculating distance ...</span>
                     <span ng-if="distance !== 0">{{distance}}m until the next Quest</span>
                 </h2>
 
                 <h2 style="margin-top: 20px">
-                    <span>{{speed}}m per second</span>
-                </h2>
-                <h2 style="margin-top: 20px">
-                    <span>{{heading}} degree from north</span>
+                    <span>{{speed || 0}}m per second</span>
                 </h2>
 
             </ion-item>
@@ -34,7 +31,7 @@
         </div>
         <h1 class="title"></h1>
         <div class="buttons" ng-click="doSomething()">
-            <button style="width: 140px;" class="button">My History</button>
+            <button ng-click="myHistory()" style="width: 140px;" class="button">My History</button>
         </div>
     </ion-footer-bar>
 </ion-view>
