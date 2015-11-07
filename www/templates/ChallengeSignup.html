@@ -1,8 +1,6 @@
-<ion-view view-title="Signup">
+<ion-view view-title="{{challenge.title}}">
   <ion-content>
     <ion-list>
-        <h2>{{challenge.title}}</h2>
-
         <ion-item>
             Approx. Duration: {{challenge.approxDuration}}
         </ion-item>
@@ -17,6 +15,11 @@
         </ion-item>
         <ion-item>
             Number of Users Signed up: {{challenge.signedUser}}
+        </ion-item>
+        <ion-item class="text-center">
+            <button class="button button-positive">
+                Participate on this Challange
+            </button>
         </ion-item>
 
     </ion-list>
