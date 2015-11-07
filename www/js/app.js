@@ -42,7 +42,7 @@ angular.module('starter', ['ionic', 'leaflet-directive', 'ngCordova', 'igTruncat
       url: '/challenges',
       views: {
         'menuContent': {
-          templateUrl: 'templates/ChallengesOverview.html',
+          templateUrl: 'templates/challengesOverview.html',
           controller: 'ChallengesOverviewController'
         }
       }
@@ -52,7 +52,7 @@ angular.module('starter', ['ionic', 'leaflet-directive', 'ngCordova', 'igTruncat
         url: '/challengeSignup/:id',
         views: {
             'menuContent': {
-                templateUrl: 'templates/ChallengeSignup.html',
+                templateUrl: 'templates/challengeSignup.html',
                 controller: 'ChallengeSignupController'
             }
         }
