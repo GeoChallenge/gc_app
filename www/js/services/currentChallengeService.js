@@ -6,6 +6,7 @@ angular.module('starter')
      * Returns the metadata of all challanges
      */
 
+
     var currQuestIndex = 0;
     var currentChallenge = {
         "title": "Schitzeljagd I",
@@ -52,6 +53,13 @@ angular.module('starter')
         return Math.floor(dist*1000);
     };
 
+    var calcAngleToNextQuestion = function(curLat, curLon) {
+        var nextLat = this.currentChallenge.quests[this.currQuestIndex].lat;
+        var nextLon = this.currentChallenge.quests[this.currQuestIndex].lon;
+        var angle = getBearing(curLat, curLon, nextLat, nextLon);
+        return Math.floor(angle);
+    };
+
     var loadChallangeDetails = function(id) {
         var deferred = $q.defer();
 
@@ -75,6 +83,8 @@ angular.module('starter')
         var d = R * c; // Distance in km
         return d;
     }
+
+
 
     function deg2rad(deg) {
         return deg * (Math.PI/180);
@@ -111,6 +121,7 @@ angular.module('starter')
         loadChallangeDetails: loadChallangeDetails,
         currentChallenge: currentChallenge,
         calcDifferenceToNextQuestion: calcDifferenceToNextQuestion,
+        calcAngleToNextQuestion: calcAngleToNextQuestion,
         currQuestIndex: currQuestIndex
     };
 });

@@ -3,7 +3,7 @@
     <ion-content>
         <ion-list>
             <ion-item class="text-center">
-                <div style="transform: rotate({{rotation}}deg);" class="compassNeedle"></div>
+                <div style="transform: rotate({{needleAngle}}deg);" class="compassNeedle"></div>
                 <h2 style="margin-top: 20px">
                     <span ng-if="distance === 0">Calculating distance ...</span>
                     <span ng-if="distance !== 0">{{distance}}m until the next Quest</span>
