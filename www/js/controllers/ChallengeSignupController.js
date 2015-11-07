@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('ChallengeSignupController', function($scope, $stateParams, ChallengesDetails) {
+.controller('ChallengeSignupController', function($scope, $stateParams, ChallengeSignup) {
 
     $scope.signup = function() {
         console.log("signup");
@@ -9,7 +9,7 @@ angular.module('starter')
     $scope.$on('$ionicView.beforeEnter', function(){
         $scope.id = $stateParams.id;
 
-        ChallengesDetails.loadChallangeDetails($stateParams.id).then(function(challenge){
+        ChallengeSignup.loadChallangeDetails($stateParams.id).then(function(challenge){
             $scope.challenge = challenge;
         }, function(){
             // error

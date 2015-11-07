@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.service('ChallengesDetails', function($http, $q, $timeout) {
+.service('ChallengeSignup', function($http, $q, $timeout) {
 
     /*
      * Returns the metadata of all challanges
