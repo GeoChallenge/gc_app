@@ -1,135 +1,111 @@
 angular.module('starter').controller('RunningMyHistoryController',
-    function(
-      $scope,
-      $cordovaGeolocation,
-      $stateParams,
-      $ionicModal,
-      $ionicPopup,
-      LocationsService,
-      InstructionsService,
-      CurrentChallenge
-      ) {
+function(
+    $scope,
+    $cordovaGeolocation,
+    $stateParams,
+    $ionicModal,
+    $ionicPopup,
+    LocationsService,
+    InstructionsService,
+    CurrentChallenge
+) {
 
-        /**
-        * Once state loaded, get put map on scope.
-        */
-        $scope.$on("$stateChangeSuccess", function() {
+    /**
+    * Once state loaded, get put map on scope.
+    */
+    $scope.$on("$stateChangeSuccess", function() {
 
-            $scope.locations = LocationsService.savedLocations;
+        $scope.locations = LocationsService.savedLocations;
 
-            $scope.historyMap = {
-                defaults: {
-                    tileLayer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-                    maxZoom: 18,
-                    zoomControlPosition: 'bottomleft'
-                },
-                markers : CurrentChallenge.myHistory,
-                center: {
-                    lat: CurrentChallenge.myHistory[0].lat,
-                    lng: CurrentChallenge.myHistory[0].lng,
-                    zoom: 14
-                },
-            };
+        $scope.historyMap = {
+            defaults: {
+                tileLayer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+                maxZoom: 18,
+                zoomControlPosition: 'bottomleft'
+            },
+            markers : CurrentChallenge.myHistory,
+            center: {
+                lat: CurrentChallenge.myHistory[0].lat,
+                lng: CurrentChallenge.myHistory[0].lng,
+                zoom: 16
+            },
+        };
 
-            $scope.goTo(0);
+        $scope.goTo(0);
 
-        });
+    });
 
-        $scope.historyPath = {
-            p1: {
-                color: 'red',
-                weight: 8,
-                latlngs: [
-                    { lat: 51.50, lng: -0.082 },
-                    { lat: 48.83, lng: 2.37 },
-                    { lat: 41.91, lng: 12.48 }
-                ],
-                message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",
-            }
+    // build history path
+    var pazz = [];
+    for (var i = 0; i < CurrentChallenge.myHistory.length-1; i++) {
+        pazz.push({ lat: CurrentChallenge.myHistory[i].lat, lng: CurrentChallenge.myHistory[i].lng });
+    }
+
+    $scope.historyPath = {
+        p1: {
+            color: '#1C7BCD',
+            weight: 6,
+            latlngs: pazz,
         }
+    };
 
+    var Location = function() {
+        if ( !(this instanceof Location) ) return new Location();
+        this.lat  = "";
+        this.lng  = "";
+        this.name = "";
+    };
 
+    /**
+    * Center map on specific saved location
+    * @param locationKey
+    */
+    $scope.goTo = function(locationKey) {
 
-         var Location = function() {
-          if ( !(this instanceof Location) ) return new Location();
-              this.lat  = "";
-              this.lng  = "";
-              this.name = "";
-          };
+        var location = LocationsService.savedLocations[locationKey];
 
-          $ionicModal.fromTemplateUrl('templates/addLocation.html', {
-              scope: $scope,
-              animation: 'slide-in-up'
-          }).then(function(modal) {
-              $scope.modal = modal;
-          });
+        $scope.map.center  = {
+            lat : location.lat,
+            lng : location.lng,
+            zoom : 12
+        };
 
-          /**
-          * Detect user long-pressing on map to add new location
-          */
-          $scope.$on('leafletDirectiveMap.contextmenu', function(event, locationEvent){
-              $scope.newLocation = new Location();
-              $scope.newLocation.lat = locationEvent.leafletEvent.latlng.lat;
-              $scope.newLocation.lng = locationEvent.leafletEvent.latlng.lng;
-              $scope.modal.show();
-          });
+        $scope.map.markers[locationKey] = {
+            lat:location.lat,
+            lng:location.lng,
+            message: location.name,
+            focus: true,
+            draggable: false
+        };
 
-          $scope.saveLocation = function() {
-              LocationsService.savedLocations.push($scope.newLocation);
-              $scope.modal.hide();
-              $scope.goTo(LocationsService.savedLocations.length - 1);
-          };
+    };
 
-          /**
-          * Center map on specific saved location
-          * @param locationKey
-          */
-          $scope.goTo = function(locationKey) {
-
-              var location = LocationsService.savedLocations[locationKey];
-
-              $scope.map.center  = {
-                  lat : location.lat,
-                  lng : location.lng,
-                  zoom : 12
-              };
-
-              $scope.map.markers[locationKey] = {
-                  lat:location.lat,
-                  lng:location.lng,
-                  message: location.name,
-                  focus: true,
-                  draggable: false
-              };
-
-          };
-
-          /**
-          * Center map on user's current position
-       */
-      $scope.locate = function(){
+    /**
+    * Center map on user's current position
+    */
+    $scope.locate = function(){
 
         $cordovaGeolocation
-          .getCurrentPosition()
-          .then(function (position) {
+        .getCurrentPosition()
+        .then(function (position) {
             $scope.map.center.lat  = position.coords.latitude;
             $scope.map.center.lng = position.coords.longitude;
             $scope.map.center.zoom = 15;
 
             $scope.map.markers.now = {
-              lat:position.coords.latitude,
-              lng:position.coords.longitude,
-              message: "You Are Here",
-              focus: true,
-              draggable: false
+                lat:position.coords.latitude,
+                lng:position.coords.longitude,
+                message: "You Are Here",
+                focus: true,
+                draggable: false
             };
 
-          }, function(err) {
+        }, function(err) {
             // error
             console.log("Location error!");
             console.log(err);
-          });
+        });
 
-      };
+    };
 
-    });
+});

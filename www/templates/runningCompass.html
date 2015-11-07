@@ -5,10 +5,11 @@
             <ion-item class="text-center">
                 <div style="transform: rotate({{needleAngle}}deg);" class="compassNeedle"></div>
                 <h1>{{needleAngle}}°</h1>
-                <h2 style="margin-top: 20px">
+                <h1 style="font-size: 30px;" style="margin-top: 20px">
                     <span ng-if="distance === 0">Calculating distance ...</span>
-                    <span ng-if="distance !== 0">{{distance}}m until the next Quest</span>
-                </h2>
+                    <span ng-if="distance !== 0">Distance: {{distance}}m</span>
+                </h1>
+
 
                 <h2 style="margin-top: 20px">
                     <span>{{speed || 0}}m per second</span>
