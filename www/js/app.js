@@ -56,6 +56,16 @@ angular.module('starter', ['ionic', 'leaflet-directive', 'ngCordova', 'igTruncat
                 controller: 'ChallengeSignupController'
             }
         }
+    })
+
+    .state('app.runningCompass', {
+        url: '/runningCompass',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/runningCompass.html',
+                controller: 'RunningCompassController'
+            }
+        }
     });
 
     $urlRouterProvider.otherwise('/app/map');
