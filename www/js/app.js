@@ -14,7 +14,7 @@ angular.module('starter', ['ionic', 'leaflet-directive', 'ngCordova', 'igTruncat
         window.cordova.plugins.Keyboard.disableScroll(true);
       }
       if(window.StatusBar) {
-        StatusBar.styleDefault();
+        //StatusBar.styleDefault();
       }
     });
   })

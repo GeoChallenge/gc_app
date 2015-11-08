@@ -24,7 +24,7 @@
     "org.apache.cordova.device-orientation"
   ],
   "cordovaPlatforms": [
-    "ios",
-    "android"
+    "android",
+    "ios"
   ]
 }

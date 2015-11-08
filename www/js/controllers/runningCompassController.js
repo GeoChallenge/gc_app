@@ -31,44 +31,54 @@ angular.module('starter')
         maximumAge: 1
     };
 
+    var geoErr = function(err) {
+        console.log(err);
+        $cordovaGeolocation.watchPosition(watchOptions).promise.then(
+            null,
+            geoErr,
+            geoSucc
+        );
+    };
+
+    var geoSucc = function(position) {
+        var lat  = position.coords.latitude;
+        var lon = position.coords.longitude;
+        console.log("new pos:", lat, lon);
+        $scope.distance = CurrentChallenge.calcDifferenceToNextQuestion(lat, lon);
+
+        // if user is 10 Meters near to the spot, show him the next quest
+        if ($scope.distance < 10) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'YEEEES!',
+                template: 'Great, you completed another Target! Let\'s move to the next!'
+            });
+            alertPopup.then(function(res) {
+                // go to the quest screen
+                $ionicHistory.nextViewOptions({
+                    disableBack: true
+                });
+                $state.go('app.runningDoQuest');
+            });
+        }
+
+        if (position.coords.speed !== null) {
+            $scope.speed = position.coords.speed;
+        }
+
+        if (position.coords.heading !== null) {
+
+            $scope.heading = position.coords.heading;
+
+            // calc ange between me and destination
+            // var nextDestAngle = CurrentChallenge.calcAngleToNextQuestion(lat, lon);
+            // $scope.needleAngle = (Math.floor(nextDestAngle + position.coords.heading)) % 360;
+            // console.log($scope.needleAngle);
+        }
+    };
+
     $cordovaGeolocation.watchPosition(watchOptions).promise.then(
         null,
-        function(err) {
-            console.log(err);
-        },
-        function(position) {
-            var lat  = position.coords.latitude;
-            var lon = position.coords.longitude;
-            $scope.distance = CurrentChallenge.calcDifferenceToNextQuestion(lat, lon);
-
-            // if user is 10 Meters near to the spot, show him the next quest
-            if ($scope.distance < 10) {
-                var alertPopup = $ionicPopup.alert({
-                    title: 'YEEEES!',
-                    template: 'Great, you completed another Target! Let\'s move to the next!'
-                });
-                alertPopup.then(function(res) {
-                    // go to the quest screen
-                    $ionicHistory.nextViewOptions({
-                        disableBack: true
-                    });
-                    $state.go('app.runningDoQuest');
-                });
-            }
-
-            if (position.coords.speed !== null) {
-                $scope.speed = position.coords.speed;
-            }
-
-            if (position.coords.heading !== null) {
-
-                $scope.heading = position.coords.heading;
-
-                // calc ange between me and destination
-                var nextDestAngle = CurrentChallenge.calcAngleToNextQuestion(lat, lon);
-                $scope.needleAngle = (Math.floor(nextDestAngle + position.coords.heading)) % 360;
-                console.log($scope.needleAngle);
-            }
-        }
+        geoErr,
+        geoSucc
     );
 });
