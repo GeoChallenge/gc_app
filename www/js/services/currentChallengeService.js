@@ -285,7 +285,7 @@ angular.module('starter')
         ],
         "quests": [
             {
-                "question": "Nenne das Geburtsjahr von Jasper!",
+                "question": "When was the statue built?",
                 "answer": "1799",
                 "lon": 9.202949,
                 "lat": 48.789188

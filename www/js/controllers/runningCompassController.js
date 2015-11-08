@@ -48,6 +48,7 @@ angular.module('starter')
 
         // if user is 10 Meters near to the spot, show him the next quest
         if ($scope.distance < 10) {
+            CurrentChallenge.currQuestIndex++;
             var alertPopup = $ionicPopup.alert({
                 title: 'YEEEES!',
                 template: 'Great, you completed another Target! Let\'s move to the next!'

@@ -1,9 +1,23 @@
 <ion-view view-title="Challenges">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="challenge in challenges" href="#/app/challengeSignup/{{challenge.id}}">
-        {{challenge.title}} {{challenge.id}}
+      <ion-item class="text-center item-text-wrap">
+          <p>You have currently a challange running!</p>
+          <a href="#/app/runningCompass" class="button button-positive">
+              Go Back to Challange!
+          </a>
       </ion-item>
+      <div class="card" ng-repeat="challenge in challenges" href="#/app/challengeSignup/{{challenge.id}}">
+        <div class="item">
+            <b>{{challenge.title}}</b><br>
+            Entry Fee: {{challenge.price}}$<br>
+            Approx Duration: {{challenge.approxDuration}}<br>
+            Participants: {{challenge.numberOfParticipants}}<br>
+            Number of Quests: {{challenge.numberOfQuests}}<br>
+            Start Date: {{challenge.numberOfParticipants | date:"medium"}}<br>
+            Winnings: {{challenge.winnings}}
+        </div>
+      </div>
     </ion-list>
   </ion-content>
 </ion-view>

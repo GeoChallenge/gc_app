@@ -107,6 +107,6 @@ angular.module('starter', ['ionic', 'leaflet-directive', 'ngCordova', 'igTruncat
         }
     });
 
-    $urlRouterProvider.otherwise('/app/runningCompass');
+    $urlRouterProvider.otherwise('/app/challenges');
 
   });

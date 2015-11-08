@@ -5,8 +5,6 @@ angular.module('starter')
 
     $scope.userInput = {};
     $scope.validateAnswer = function() {
-        CurrentChallenge.currQuestIndex++;
-
         var correctAnswer = "";
         if ($scope.userInput.answer !== correctAnswer) {
             // generate a random variance
