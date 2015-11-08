@@ -62,7 +62,7 @@ angular.module('starter')
         }
 
         if (position.coords.speed !== null) {
-            $scope.speed = position.coords.speed;
+            $scope.speed = Math.abs(position.coords.speed);
         }
 
         if (position.coords.heading !== null) {
