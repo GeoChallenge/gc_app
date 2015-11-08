@@ -8,7 +8,8 @@ function(
     $ionicPopup,
     LocationsService,
     InstructionsService,
-    CurrentChallenge
+    CurrentChallenge,
+    $timeout
 ) {
 
     /**
@@ -24,7 +25,7 @@ function(
                 maxZoom: 18,
                 zoomControlPosition: 'bottomleft'
             },
-            markers : CurrentChallenge.myHistory,
+            markers : [],
             center: {
                 lat: CurrentChallenge.myHistory[0].lat,
                 lng: CurrentChallenge.myHistory[0].lng,
@@ -36,19 +37,46 @@ function(
 
     });
 
-    // build history path
-    var pazz = [];
-    for (var i = 0; i < CurrentChallenge.myHistory.length-1; i++) {
-        pazz.push({ lat: CurrentChallenge.myHistory[i].lat, lng: CurrentChallenge.myHistory[i].lng });
-    }
-
-    $scope.historyPath = {
-        p1: {
+    // prepate lines
+    $scope.historyPath = {};
+    for (var k = 0; k < CurrentChallenge.history.length; k++) {
+        $scope.historyPath["p"+k] = {
             color: '#1C7BCD',
             weight: 6,
-            latlngs: pazz,
-        }
+            latlngs: [],
+        };
+    }
+
+    // i is the iteration, m the marker data, j is the enemy id
+    var addMarkers = function(i, m, j) {
+        $timeout(function(){
+            var markerObject = {
+                lat: m.lat,
+                lng: m.lon
+            };
+            $scope.historyMap.markers.push(markerObject);
+            $scope.historyPath["p"+j].latlngs.push({
+                lat: m.lat,
+                lng: m.lon
+            });
+        }, 3000*i);
     };
+
+    // print the last 5 markers of each enemy
+    for (var i = 0; i < 5; i++) {
+        for (var j = 0; j < CurrentChallenge.history.length; j++) {
+            var currEnemie = CurrentChallenge.history[j];
+            addMarkers(i, currEnemie[i], j);
+        }
+    }
+
+
+
+
+
+
+
+
 
     var Location = function() {
         if ( !(this instanceof Location) ) return new Location();

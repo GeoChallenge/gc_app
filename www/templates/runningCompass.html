@@ -12,7 +12,7 @@
 
 
                 <h2 style="margin-top: 20px">
-                    <span>{{speed || 0}}m per second</span>
+                    <span>Pace: {{speed || 0}}m per second</span>
                 </h2>
 
             </ion-item>
@@ -26,13 +26,13 @@
         </ion-list>
     </ion-content>
 
-    <ion-footer-bar align-title="left" class="bar-dark">
+    <ion-footer-bar align-title="left" class="bar">
         <div class="buttons" >
-            <button ng-click="jokers()" style="width: 140px;" class="button">Jokers</button>
+            <button ng-click="jokers()" style="width: 140px;" class="button button-positive">Jokers</button>
         </div>
         <h1 class="title"></h1>
         <div class="buttons">
-            <button ng-click="myHistory()" style="width: 140px;" class="button">My History</button>
+            <button ng-click="myHistory()" style="width: 140px;" class="button button-positive">My History</button>
         </div>
     </ion-footer-bar>
 </ion-view>

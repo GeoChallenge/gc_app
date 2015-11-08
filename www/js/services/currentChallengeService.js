@@ -47,6 +47,229 @@ angular.module('starter')
         }
     ];
 
+    var history =     [
+            [
+                {
+                "userId": "S6DFG9",
+                  "lon": 9.1850586,
+                  "lat": 48.780331,
+                  "timestamp": "2015-11-20T15:29:12.485Z",
+                  "nextQuestIndex": 0
+                },
+                {
+                  "userId": "S6DFG9",
+                  "lon": 9.1844216,
+                  "lat": 48.781203,
+                  "timestamp": "2015-11-20T15:34:11.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "S6DFG9",
+                  "lon": 9.1857153,
+                  "lat": 48.7822856,
+                  "timestamp": "2015-11-20T15:41:07.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "S6DFG9",
+                  "lon": 9.1865417,
+                  "lat": 48.7835254,
+                  "timestamp": "2015-11-20T15:50:47.485Z",
+                  "nextQuestIndex": 2
+                },
+                {
+                  "userId": "S6DFG9",
+                  "lon": 9.1879585,
+                  "lat": 48.7852805,
+                  "timestamp": "2015-11-20T15:55:12.485Z",
+                  "nextQuestIndex": 2
+                },
+                {
+                  "userId": "S6DFG9",
+                  "lon": 1904106,
+                  "lat": 48.7881161,
+                  "timestamp": "2015-11-20T16:01:19.485Z",
+                  "nextQuestIndex": 2
+                },
+            ],
+            [
+                {
+                  "userId": "9KJH79K",
+                  "lon": 9.1850583,
+                  "lat": 48.780348,
+                  "timestamp": "2015-11-20T15:29:12.485Z",
+                  "nextQuestIndex": 0
+                },
+                {
+                  "userId": "9KJH79K",
+                  "lon": 9.1844240,
+                  "lat": 48.781212,
+                  "timestamp": "2015-11-20T15:34:11.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "9KJH79K",
+                  "lon": 9.1857110,
+                  "lat": 48.7822340,
+                  "timestamp": "2015-11-20T15:41:07.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "9KJH79K",
+                  "lon": 9.1865414,
+                  "lat": 48.7835200,
+                  "timestamp": "2015-11-20T15:50:47.485Z",
+                  "nextQuestIndex": 2
+                },
+                {
+                  "userId": "9KJH79K",
+                  "lon": 9.1879512,
+                  "lat": 48.7852839,
+                  "timestamp": "2015-11-20T15:55:12.485Z",
+                  "nextQuestIndex": 2
+                },
+                {
+                  "userId": "9KJH79K",
+                  "lon": 1904106,
+                  "lat": 48.7881112,
+                  "timestamp": "2015-11-20T16:01:19.485Z",
+                  "nextQuestIndex": 2
+                },
+            ],
+            [
+                {
+                  "userId": "9TZF45G",
+                  "lon": 9.1850183,
+                  "lat": 48.780348,
+                  "timestamp": "2015-11-20T15:29:12.485Z",
+                  "nextQuestIndex": 0
+                },
+                {
+                  "userId": "9TZF45G",
+                  "lon": 9.1844040,
+                  "lat": 48.781012,
+                  "timestamp": "2015-11-20T15:34:11.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "9TZF45G",
+                  "lon": 9.1857310,
+                  "lat": 48.7822340,
+                  "timestamp": "2015-11-20T15:41:07.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "9TZF45G",
+                  "lon": 9.1865114,
+                  "lat": 48.7835100,
+                  "timestamp": "2015-11-20T15:50:47.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "9TZF45G",
+                  "lon": 9.1879212,
+                  "lat": 48.7852239,
+                  "timestamp": "2015-11-20T15:55:12.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "9TZF45G",
+                  "lon": 1904006,
+                  "lat": 48.7881212,
+                  "timestamp": "2015-11-20T16:01:19.485Z",
+                  "nextQuestIndex": 1
+                },
+            ],
+            [
+                {
+                  "userId": "756GFT4",
+                  "lon": 9.1850183,
+                  "lat": 48.780348,
+                  "timestamp": "2015-11-20T15:29:12.485Z",
+                  "nextQuestIndex": 0
+                },
+                {
+                  "userId": "756GFT4",
+                  "lon": 9.1844040,
+                  "lat": 48.781012,
+                  "timestamp": "2015-11-20T15:34:11.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "756GFT4",
+                  "lon": 9.1857310,
+                  "lat": 48.7822340,
+                  "timestamp": "2015-11-20T15:41:07.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "756GFT4",
+                  "lon": 9.1865114,
+                  "lat": 48.7835100,
+                  "timestamp": "2015-11-20T15:50:47.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "756GFT4",
+                  "lon": 9.1879212,
+                  "lat": 48.7852239,
+                  "timestamp": "2015-11-20T15:55:12.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "756GFT4",
+                  "lon": 1904006,
+                  "lat": 48.7881212,
+                  "timestamp": "2015-11-20T16:01:19.485Z",
+                  "nextQuestIndex": 1
+                },
+            ],
+            [
+                {
+                  "userId": "0MKJOID6",
+                  "lon": 9.1850183,
+                  "lat": 48.780348,
+                  "timestamp": "2015-11-20T15:29:12.485Z",
+                  "nextQuestIndex": 0
+                },
+                {
+                  "userId": "0MKJOID6",
+                  "lon": 9.1844040,
+                  "lat": 48.781012,
+                  "timestamp": "2015-11-20T15:34:11.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "0MKJOID6",
+                  "lon": 9.1857310,
+                  "lat": 48.7822340,
+                  "timestamp": "2015-11-20T15:41:07.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "0MKJOID6",
+                  "lon": 9.1865114,
+                  "lat": 48.7835100,
+                  "timestamp": "2015-11-20T15:50:47.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "0MKJOID6",
+                  "lon": 9.1879212,
+                  "lat": 48.7852239,
+                  "timestamp": "2015-11-20T15:55:12.485Z",
+                  "nextQuestIndex": 1
+                },
+                {
+                  "userId": "0MKJOID6",
+                  "lon": 1904006,
+                  "lat": 48.7881212,
+                  "timestamp": "2015-11-20T16:01:19.485Z",
+                  "nextQuestIndex": 1
+                }
+            ]
+        ];
+
     var currQuestIndex = 0;
     var currentChallenge = {
         "title": "Schitzeljagd I",
@@ -135,6 +358,7 @@ angular.module('starter')
         calcDifferenceToNextQuestion: calcDifferenceToNextQuestion,
         calcAngleToNextQuestion: calcAngleToNextQuestion,
         currQuestIndex: currQuestIndex,
-        myHistory: myHistory
+        myHistory: myHistory,
+        history: history
     };
 });
